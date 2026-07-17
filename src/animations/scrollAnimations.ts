@@ -4,9 +4,16 @@ export function animateCardStagger(
   containerSelector: string,
   itemSelector: string
 ) {
-  gsap.from(`${containerSelector} ${itemSelector}`, {
-    opacity: 0,
-    y: 50,
+  const items = gsap.utils.toArray<HTMLElement>(
+    `${containerSelector} ${itemSelector}`
+  );
+
+  // Isang beses lang isse-set ang starting state — ligtas kahit paulit-ulit tawagin
+  gsap.set(items, { opacity: 0, y: 50 });
+
+  gsap.to(items, {
+    opacity: 1,
+    y: 0,
     duration: 0.6,
     stagger: 0.15,
     ease: "power2.out",
@@ -14,7 +21,6 @@ export function animateCardStagger(
       trigger: containerSelector,
       start: "top 75%",
       once: true,
-      markers: true,
     },
   });
 }
