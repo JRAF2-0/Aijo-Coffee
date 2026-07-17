@@ -47,3 +47,26 @@ export function animateImageZoom(
     },
   });
 }
+
+export function animateBeansParallax(container: HTMLElement | string) {
+  const beans = gsap.utils.toArray<HTMLElement>(
+    typeof container === "string"
+      ? `${container} .bean-item`
+      : container.querySelectorAll(".bean-item")
+  );
+
+  beans.forEach((bean, i) => {
+    const distance = i % 2 === 0 ? 60 : -80;
+
+    gsap.to(bean, {
+      y: distance,
+      ease: "none",
+      scrollTrigger: {
+        trigger: container,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1,
+      },
+    });
+  });
+}

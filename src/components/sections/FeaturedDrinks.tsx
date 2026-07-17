@@ -1,7 +1,11 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { drinks } from "../../data/drinks";
-import { animateCardStagger } from "../../animations/scrollAnimations";
+import {
+  animateCardStagger,
+  animateBeansParallax,
+} from "../../animations/scrollAnimations";
+import CoffeeBeanDecor from "../ui/CoffeeBeanDecor";
 
 export default function FeaturedDrinks() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -9,16 +13,23 @@ export default function FeaturedDrinks() {
   useGSAP(
     () => {
       animateCardStagger("#drinks-grid", ".drink-card");
+      if (containerRef.current) {
+        animateBeansParallax(containerRef.current);
+      }
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
-    <section id="menu" className="py-24 px-6 bg-neutral-50" ref={containerRef}>
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Featured Drinks
-        </h2>
+    <section
+      id="drinks-section"
+      ref={containerRef}
+      className="relative py-24 px-6 bg-neutral-50 overflow-hidden"
+    >
+      <CoffeeBeanDecor />
+
+      <div className="max-w-6xl mx-auto text-center relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Drinks</h2>
         <p className="text-neutral-500 mb-12">
           Handcrafted favorites, made fresh every day.
         </p>
