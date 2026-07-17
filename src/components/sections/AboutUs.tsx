@@ -1,7 +1,25 @@
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { animateFadeIn } from "../../animations/scrollAnimations";
+
 export default function AboutUs() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (containerRef.current) {
+        animateFadeIn("#about-content", containerRef.current);
+      }
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <section id="about" className="py-24 px-6 bg-white">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <section id="about" ref={containerRef} className="py-24 px-6 bg-white">
+      <div
+        id="about-content"
+        className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center"
+      >
         {/* Image */}
         <div className="w-full h-80 md:h-96 rounded-2xl overflow-hidden bg-neutral-200">
           <img
