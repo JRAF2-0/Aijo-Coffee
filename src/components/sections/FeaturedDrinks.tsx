@@ -27,11 +27,19 @@ export default function FeaturedDrinks() {
           {drinks.map((drink) => (
             <div
               key={drink.id}
-              className="drink-card bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+              className="drink-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
             >
-              <div className="text-4xl mb-4">{drink.icon}</div>
-              <h3 className="font-semibold text-lg mb-1">{drink.name}</h3>
-              <p className="text-amber-600 font-medium">₱{drink.price}</p>
+              <div className="w-full h-40 overflow-hidden">
+                <img
+                  src={drink.image}
+                  alt={drink.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="font-semibold text-lg mb-1">{drink.name}</h3>
+                <p className="text-amber-600 font-medium">₱{drink.price}</p>
+              </div>
             </div>
           ))}
         </div>

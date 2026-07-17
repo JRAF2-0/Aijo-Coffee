@@ -3,6 +3,7 @@ export interface Drink {
   name: string;
   price: number;
   icon: string; // emoji or icon name
+  image: string;
 }
 
 export interface BestSeller {
