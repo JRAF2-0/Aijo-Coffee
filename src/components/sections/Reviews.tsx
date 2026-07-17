@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useGSAP } from "@gsap/react";
 import { reviews } from "../../data/reviews";
+import { animateSlideIn } from "../../animations/scrollAnimations";
 
 export default function Reviews() {
   const [index, setIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const current = reviews[index];
 
@@ -11,18 +14,31 @@ export default function Reviews() {
   const goPrev = () =>
     setIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
 
+  useGSAP(
+    () => {
+      if (containerRef.current) {
+        animateSlideIn("#review-card", containerRef.current, "left");
+      }
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <section className="py-24 px-6 bg-white">
+    <section ref={containerRef} className="py-24 px-6 bg-white">
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-12">
           Customer Reviews
         </h2>
 
-        <div className="bg-neutral-50 rounded-2xl p-10">
+        <div id="review-card" className="bg-neutral-50 rounded-2xl p-10">
           {/* Stars */}
           <div className="flex justify-center gap-1 mb-4">
             {Array.from({ length: current.rating }).map((_, i) => (
-              <Star key={i} size={20} className="fill-amber-400 text-amber-400" />
+              <Star
+                key={i}
+                size={20}
+                className="fill-amber-400 text-amber-400"
+              />
             ))}
           </div>
 

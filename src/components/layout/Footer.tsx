@@ -1,5 +1,8 @@
+import { useRef } from "react";
 import { Coffee } from "lucide-react";
+import { useGSAP } from "@gsap/react";
 import { siteConfig, navLinks } from "../../data/siteConfig";
+import { animateFadeIn } from "../../animations/scrollAnimations";
 
 // Custom social icons
 function FacebookIcon({ size = 20 }: { size?: number }) {
@@ -30,9 +33,26 @@ function InstagramIcon({ size = 20 }: { size?: number }) {
 }
 
 export default function Footer() {
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      if (containerRef.current) {
+        animateFadeIn("#footer-content", containerRef.current);
+      }
+    },
+    { scope: containerRef },
+  );
+
   return (
-    <footer className="bg-neutral-950 text-neutral-300 py-16 px-6">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+    <footer
+      ref={containerRef}
+      className="bg-neutral-950 text-neutral-300 py-16 px-6"
+    >
+      <div
+        id="footer-content"
+        className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10"
+      >
         {/* Logo */}
         <div>
           <div className="flex items-center gap-2 text-white mb-3">

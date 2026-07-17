@@ -70,3 +70,44 @@ export function animateBeansParallax(container: HTMLElement | string) {
     });
   });
 }
+
+export function animateSlideIn(
+  target: HTMLElement | string,
+  trigger: HTMLElement,
+  direction: "left" | "right" = "left"
+) {
+  const xStart = direction === "left" ? -60 : 60;
+
+  gsap.set(target, { opacity: 0, x: xStart });
+
+  gsap.to(target, {
+    opacity: 1,
+    x: 0,
+    duration: 0.7,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger,
+      start: "top 75%",
+      once: true,
+    },
+  });
+}
+
+export function animateFadeIn(
+  target: HTMLElement | string,
+  trigger: HTMLElement
+) {
+  gsap.set(target, { opacity: 0, y: 30 });
+
+  gsap.to(target, {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger,
+      start: "top 80%",
+      once: true,
+    },
+  });
+}

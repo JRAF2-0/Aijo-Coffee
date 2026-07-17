@@ -1,10 +1,24 @@
+import { useRef } from "react";
 import { MapPin, Phone, Clock } from "lucide-react";
+import { useGSAP } from "@gsap/react";
 import { siteConfig } from "../../data/siteConfig";
+import { animateFadeIn } from "../../animations/scrollAnimations";
 
 export default function VisitUs() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (containerRef.current) {
+        animateFadeIn("#visit-content", containerRef.current);
+      }
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <section id="contact" className="py-24 px-6 bg-neutral-50">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <section id="contact" ref={containerRef} className="py-24 px-6 bg-neutral-50">
+      <div id="visit-content" className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Map */}
         <div className="w-full h-80 md:h-96 rounded-2xl overflow-hidden bg-neutral-200">
           <iframe
