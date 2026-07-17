@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ScrollTrigger } from "./lib/gsap";
+import { useLenis } from "./hooks/useLenis";
 import LoadingScreen from "./components/sections/LoadingScreen";
 import Header from "./components/layout/Header";
 import Hero from "./components/sections/Hero";
@@ -14,6 +15,7 @@ import Footer from "./components/layout/Footer";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  useLenis();
 
   useEffect(() => {
     const handleLoad = () => ScrollTrigger.refresh();

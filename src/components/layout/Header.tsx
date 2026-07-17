@@ -9,12 +9,12 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-sm text-white">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <a href="#home" className="flex items-center gap-2 cursor-pointer">
           <Coffee size={24} />
           <span className="text-xl font-semibold tracking-wide">
             {siteConfig.name}
           </span>
-        </div>
+        </a>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8 text-sm uppercase tracking-wider">
