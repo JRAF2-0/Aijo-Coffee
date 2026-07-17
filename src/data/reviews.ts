@@ -19,4 +19,22 @@ export const reviews: Review[] = [
     rating: 4,
     comment: "Great ambiance for studying, fast WiFi too.",
   },
+  {
+    id: "4",
+    name: "Miguel Torres",
+    rating: 5,
+    comment: "The Dirty Matcha is unreal. Perfect balance of bitter and sweet.",
+  },
+  {
+    id: "5",
+    name: "Bea Fernandez",
+    rating: 5,
+    comment: "My go-to study spot. Staff remembers my order every time!",
+  },
+  {
+    id: "6",
+    name: "Carlo Villanueva",
+    rating: 4,
+    comment: "Affordable prices for the quality. The cold brew is a staple.",
+  },
 ];
