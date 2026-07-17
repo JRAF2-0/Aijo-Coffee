@@ -8,7 +8,6 @@ export function animateCardStagger(
     `${containerSelector} ${itemSelector}`
   );
 
-  // Isang beses lang isse-set ang starting state — ligtas kahit paulit-ulit tawagin
   gsap.set(items, { opacity: 0, y: 50 });
 
   gsap.to(items, {
