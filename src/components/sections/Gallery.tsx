@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { X } from "lucide-react";
+import { useGSAP } from "@gsap/react";
 import { galleryImages } from "../../data/gallery";
+import { animateImageZoom } from "../../animations/scrollAnimations";
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      animateImageZoom("#gallery-grid", ".gallery-item");
+    },
+    { scope: containerRef }
+  );
 
   return (
-    <section id="gallery" className="py-24 px-6 bg-white">
+    <section
+      id="gallery"
+      ref={containerRef}
+      className="py-24 px-6 bg-white"
+    >
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Coffee Gallery
@@ -16,12 +30,12 @@ export default function Gallery() {
         </p>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div id="gallery-grid" className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {galleryImages.map((img) => (
             <div
               key={img.id}
               onClick={() => setSelectedImage(img.image)}
-              className="aspect-square rounded-xl overflow-hidden bg-neutral-200 cursor-pointer group"
+              className="gallery-item aspect-square rounded-xl overflow-hidden bg-neutral-200 cursor-pointer group"
             >
               <img
                 src={img.image}
