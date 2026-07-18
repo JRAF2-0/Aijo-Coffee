@@ -25,11 +25,17 @@ export default function Hero({ startAnimation }: HeroProps) {
       id="home"
       className="relative h-screen w-full overflow-hidden flex items-center justify-center text-white"
     >
-      {/* Background - temporary gradient placeholder */}
-      <div
+      {/* Background Video */}
+      <video
         id="hero-bg"
-        className="absolute inset-0 bg-gradient-to-br from-amber-900 via-neutral-900 to-black opacity-0 scale-110"
-      />
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-0 scale-110"
+      >
+        <source src="/videos/hero-bg.mp4" type="video/mp4" />
+      </video>
 
       {/* Dark overlay para readable yung text sa ibabaw */}
       <div className="absolute inset-0 bg-black/30" />
