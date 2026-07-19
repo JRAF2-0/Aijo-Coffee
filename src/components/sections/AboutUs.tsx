@@ -48,7 +48,7 @@ export default function AboutUs() {
           className="w-full h-80 md:h-96 rounded-2xl overflow-hidden bg-neutral-200"
         >
           <img
-            src="https://picsum.photos/seed/about-coffee/800/600"
+            src="/images/about-coffee.jpg"
             alt="Coffee beans being roasted"
             className="w-full h-full object-cover"
           />
