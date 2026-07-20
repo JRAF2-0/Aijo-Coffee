@@ -1,4 +1,4 @@
-# Aijo Coffee Shop — Project Architecture
+# JRAF_Drinks_Dessert — Project Architecture
 
 Ito ang "source of truth" natin. Babalik-balikan natin ito bawat phase. Kapag may bagong file/folder, dadagdagan lang natin ang structure na ito — hindi natin babaguhin ang laman ng document, extend lang.
 
@@ -25,7 +25,7 @@ Ito ang "source of truth" natin. Babalik-balikan natin ito bawat phase. Kapag ma
 ## 2. Folder Structure (Target — hahantungan natin dito)
 
 ```
-aijo-coffee/
+JRAF_Drinks_Dessert/
 ├── public/
 │   ├── favicon.ico
 │   └── videos/
@@ -140,7 +140,7 @@ Idea: **loading/hero animations** ay isang timeline (`gsap.timeline()`) na naka-
 
 ## 5. Example Dummy Data (gagamitin sa Phase 3-4)
 
-- **Business name:** Aijo Coffee
+- **Business name:** JRAF_Drinks_Dessert
 - **Tagline:** "Freshly Brewed Coffee, Crafted with Passion"
 - **Drinks:** Espresso ₱89, Latte ₱109, Mocha ₱119, Cappuccino ₱99
 - **Best Sellers:** Spanish Latte, Caramel Macchiato, Dirty Matcha, Cold Brew
