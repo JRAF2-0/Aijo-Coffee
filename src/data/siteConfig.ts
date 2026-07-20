@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: "Freshly Brewed Coffee",
   subTagline: "Crafted with Passion",
 
-  address: "Moalboal, Cebu, Philippines",
+  address: "W9RV+2J3, Poblacion East, Moalboal, Cebu",
   phone: "+63 912 345 6789",
   email: "jraf@aijocoffee.com",
 
@@ -17,7 +17,7 @@ export const siteConfig = {
     tiktok: "https://tiktok.com/@aijocoffee",
   },
 
-  mapEmbedUrl: "https://www.google.com/maps/embed?pb=YOUR_EMBED_LINK_HERE",
+  mapEmbedUrl: "https://www.google.com/maps?q=W9RV%2B2J3+Poblacion+East,+Moalboal,+Cebu&output=embed",
 };
 
 export const navLinks = [
