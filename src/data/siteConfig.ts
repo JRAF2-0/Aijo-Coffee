@@ -1,7 +1,8 @@
 export const siteConfig = {
-  name: "Aijo Coffee",
-  tagline: "Freshly Brewed Coffee",
-  subTagline: "Crafted with Passion",
+  name: "JRAF",
+  tagline: "Delicious Drinks",
+  subTagline: "& Decadent Desserts",
+  logo: "/images/logo.png",
 
   address: "W9RV+2J3, Poblacion East, Moalboal, Cebu",
   phone: "+63 912 345 6789",

@@ -1,7 +1,7 @@
 import { useRef } from "react";
-import { Coffee } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import { playLoaderTimeline } from "../../animations/loaderTimeline";
+import { siteConfig } from "../../data/siteConfig";
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -25,7 +25,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     >
       {/* Logo */}
       <div id="loading-logo" className="opacity-0 scale-90">
-        <Coffee size={48} className="text-amber-400" />
+        <img src={siteConfig.logo} alt={siteConfig.name} className="h-20 w-auto" />
       </div>
 
       {/* Steam */}
@@ -35,9 +35,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         <span className="w-1 h-6 bg-neutral-400 rounded-full opacity-0" />
       </div>
 
-      {/* Brand name */}
       <p id="loading-text" className="mt-4 text-sm tracking-widest uppercase opacity-0">
-        Aijo Coffee
+        {siteConfig.name}
       </p>
     </div>
   );

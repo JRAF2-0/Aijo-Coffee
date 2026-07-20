@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { Coffee } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import { siteConfig, navLinks } from "../../data/siteConfig";
 import { animateFadeIn } from "../../animations/scrollAnimations";
@@ -55,11 +54,14 @@ export default function Footer() {
       >
         {/* Logo */}
         <div>
-          <div className="flex items-center gap-2 text-white mb-3">
-            <Coffee size={22} />
-            <span className="text-lg font-semibold">{siteConfig.name}</span>
-          </div>
-          <p className="text-sm text-neutral-500">{siteConfig.tagline}</p>
+          <img
+            src={siteConfig.logo}
+            alt={siteConfig.name}
+            className="h-14 w-auto mb-3"
+          />
+          <p className="text-sm text-neutral-500">
+            {siteConfig.tagline} {siteConfig.subTagline}
+          </p>
         </div>
 
         {/* Quick Links */}
